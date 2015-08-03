@@ -1,0 +1,49 @@
+.datesholder {
+	margin-bottom:15px;
+}
+.datesholder .form-group {
+	margin-right:10px;
+}
+
+.statusButton {
+  width:100%;
+}
+
+.StatusHeader {
+  text-align:center;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.modalAlert {
+    display:none
+}
+
+#loadingAjax{
+    display: none;
+}
+
+#userNameLabel{
+    color: darkgreen;
+    margin-top: 20px;
+}
+
+.errorDialog{
+    display: none;
+    margin-top: 40px;
+}
+
+#filterInputs{
+    display: none;
+}
+
+.loadingTableIcon{
+    margin-top: 20%;
+}
+
+.digitsOnlyMsg{
+color: red;
+}
+
