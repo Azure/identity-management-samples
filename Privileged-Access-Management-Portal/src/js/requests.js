@@ -44,6 +44,9 @@ function renderTableRequests(requestsData){
  
     $('#example').dataTable( {
         "data": requestsData,
+		"columnDefs":  [
+			{ targets: [0, 5, 6], render: $.fn.dataTable.render.text() },
+		],
         "columns": [        
             { "title": "Role Name", "data" : "RoleDisplayName"  },
             { "title": "Creation Time ", "mRender": function (data, type, full) { return getFormattedTime(full.CreationTime, false, true); } },
