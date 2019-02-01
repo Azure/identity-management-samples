@@ -74,8 +74,11 @@ function renderTableRoles(rolesData){
  
     $('#example').dataTable( {
         "data": rolesData,
+		"columnDefs":  [
+			{ targets: [0, 1], render: $.fn.dataTable.render.text() },
+		],
         "columns": [
-            { "title": "Role Name", "data" : "DisplayName"  },
+            { "title": "Role Name", "data" : "DisplayName", className: "display-name"  },
             { "title": "Description", "data" : "Description"  },
             { "title": "Actions", "className": "StatusHeader", 'mRender': function (data, type, full) {return actionButtons(data, type, full); }},
             { "title": "Expiration Time", "mRender": function (data, type, full) { return getFormattedTime(full.ExpirationTime, true, false);}},
@@ -99,7 +102,7 @@ function onRolesFailCallback(pamRolesResult, pamActiveRequestsResult){
 $(document).on("click", ".createRequestModal", function () {
     $(".errorDialog").hide();
     clearCreateModalFields();
-    var roleDisplayname = $(this).data('displayname');
+    var roleDisplayname = $(this).closest('tr').find(".display-name").text();
     var roleId= $(this).data('roleid');
     var mfaEnabled = $(this).data('mfaenabled');
     var roleTtlHours = Math.round($(this).data('ttl') / 36) / 100;
@@ -132,7 +135,7 @@ $(document).on("click", ".createRequestModal", function () {
 
 $(document).on("click", ".relinquishRequestModal", function () {
     clearRelinquishModalFields();
-    var relinquishRoleDisplayname = $(this).data('displayname');
+    var relinquishRoleDisplayname = $(this).closest('tr').find(".display-name").text();
     var relinquishRoleId= $(this).data('roleid');
     $(".modal-dialog #relinquishRoleDisplayname").text(relinquishRoleDisplayname);
     $("#relinquishRoleIdInput").attr("value", relinquishRoleId);
@@ -145,7 +148,7 @@ function actionButtons(data, type, full) {
 
 function elevateButton(data, type, full) {
     var isRoleActive =  full.ExpirationTime.trim();
-	return "<button type=\"button\" class=\"btn " + (isRoleActive ? ("btn-info") : ("btn-success")) + " createRequestModal statusButton \" data-toggle=\"modal\" data-target=\"#requestModal\" data-roleid=\"" + full.RoleId + "\" data-displayname=\"" + full.DisplayName + "\" data-mfaenabled=\"" + full.MFAEnabled + "\" data-isroleactive=\"" + isRoleActive + "\" data-ttl=\"" + full.TTL + "\">" + (isRoleActive ? ("Extend Activation") : ("Activate")) + "</button>";
+	return "<button type=\"button\" class=\"btn " + (isRoleActive ? ("btn-info") : ("btn-success")) + " createRequestModal statusButton \" data-toggle=\"modal\" data-target=\"#requestModal\" data-roleid=\"" + full.RoleId + "\" data-mfaenabled=\"" + full.MFAEnabled + "\" data-isroleactive=\"" + isRoleActive + "\" data-ttl=\"" + full.TTL + "\">" + (isRoleActive ? ("Extend Activation") : ("Activate")) + "</button>";
 };
 
 function relinquishButton(data, type, full) {
@@ -154,7 +157,7 @@ function relinquishButton(data, type, full) {
     
     if (isRoleActive)
     {
-        retValue =  "<button type=\"button\" class=\"btn " + "btn-warning" + " relinquishRequestModal statusButton \" data-toggle=\"modal\" data-target=\"#relinquishModal\" data-roleid=\"" + full.RoleId +"\" data-displayname=\"" + full.DisplayName +"\" + data-isroleactive=\"" + isRoleActive +"\" data-ttl=\"" + full.TTL +"\">" + "Deactivate" +"</button>";
+        retValue =  "<button type=\"button\" class=\"btn " + "btn-warning" + " relinquishRequestModal statusButton \" data-toggle=\"modal\" data-target=\"#relinquishModal\" data-roleid=\"" + full.RoleId +"\" data-isroleactive=\"" + isRoleActive +"\" data-ttl=\"" + full.TTL +"\">" + "Deactivate" +"</button>";
     }
     return retValue;
 };

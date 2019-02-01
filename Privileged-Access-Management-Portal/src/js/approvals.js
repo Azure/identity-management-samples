@@ -22,6 +22,9 @@ function renderTableRequests(requestsData){
  
     $('#example').dataTable( {
         "data": requestsData,
+		"columnDefs":  [
+			{ targets: [0, 1, 2], render: $.fn.dataTable.render.text() },
+		],
         "columns": [        
             { "title": "Role Name", "data" : "RoleName"  },
             { "title": "Requestor Name", "data" : "Requestor"  },
