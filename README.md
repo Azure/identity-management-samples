@@ -8,3 +8,9 @@ The sub-folder `Privileged-Access-Management-Portal/src` contains a sample web a
 
 For installation instructions for the REST API and this sample, see the section "Set up the sample web application" in 
 [Step 4 – Install MIM components on PAM server and workstation](https://docs.microsoft.com/en-us/microsoft-identity-manager/pam/step-4-install-mim-components-on-pam-server).
+
+## Change history
+
+### February 1, 2019
+
+Security improvement in how the PAM sample incorporates data returned by the MIM PAM REST API into HTML using jQuery.  Acknowledgement to issue found by [T. Sluijter](https://www.kilala.nl).
