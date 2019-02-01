@@ -13,5 +13,4 @@ For installation instructions for the REST API and this sample, see the section 
 
 ### February 1, 2019
 
-Security improvement in how the PAM sample incorporates data returned by MIM PAM REST API in HTML using jQuery.  Acknowledgement to issue found by [T. Sluijter](https://www.kilala.nl).
-
+Security improvement in how the PAM sample incorporates data returned by the MIM PAM REST API into HTML using jQuery.  Acknowledgement to issue found by [T. Sluijter](https://www.kilala.nl).
