@@ -27,6 +27,7 @@ function createPamRequest(reqJustification, reqRoleId, reqTTL, reqTime) {
         url: BuildPamRestApiUrl('pamrequests'),
         type: 'POST',
         data: requestJson,
+		contentType: 'application/x-www-form-urlencoded',  //Role activation fails with HTTP 406 due to missing contentType
         xhrFields: {
             withCredentials: true
         }
