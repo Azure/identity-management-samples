@@ -66,11 +66,11 @@ $( document ).ajaxError(function(event, jqxhr, settings, thrownError) {
 	$(".errorDialog").show();
 });
 
-$( document ).ready(function () {
-  $(".onlyDigits").keypress(function (e) {
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57) && e.which != 46) {
-        $(".digitsOnlyMsg").html("Digits Only").show().fadeOut("slow");
-               return false;
-    }
-   });
+$(function () {
+    $(".onlyDigits").on('keypress', function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57) && e.which != 46) {
+            $(".digitsOnlyMsg").html("Digits Only").show().fadeOut("slow");
+            return false;
+        }
+    });
 });
