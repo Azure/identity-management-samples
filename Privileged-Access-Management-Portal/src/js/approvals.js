@@ -14,7 +14,7 @@ $(function() {
 
 
 function refreshTableRequests(){
-        getPamRequestToApproveExtendInfo(onRequestsDoneCallback, onRequestsFailCallback);
+    getPamRequestToApproveExtendInfo(onRequestsDoneCallback, onRequestsFailCallback);
 }
 
 function renderTableRequests(requestsData){

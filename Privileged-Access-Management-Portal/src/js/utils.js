@@ -10,6 +10,9 @@ function GetGlobalConfig() {
 
 function BuildPamRestApiUrl(objectPath, filter) {
     var requestFilter = (filter == undefined) ? "" : filter;
+    console.log("PAM REST API",  GlobalConfig.pamRespApiUrl);
+    console.log("PAM REST API OBJECT PATH",  objectPath);
+    console.log("PAM REST API REQUEST FILTER",  GlobalConfig.pamRespApiUrl + objectPath + requestFilter);
     return GlobalConfig.pamRespApiUrl + objectPath + requestFilter;
 }
 
