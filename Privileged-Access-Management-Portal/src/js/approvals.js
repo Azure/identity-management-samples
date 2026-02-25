@@ -14,7 +14,7 @@ $(function() {
 
 
 function refreshTableRequests(){
-        getPamRequestToApproveExtendInfo(onRequestsDoneCallback, onRequestsFailCallback);
+    getPamRequestToApproveExtendInfo(onRequestsDoneCallback, onRequestsFailCallback);
 }
 
 function renderTableRequests(requestsData){
@@ -44,7 +44,6 @@ function onRequestsDoneCallback(requestsData){
     renderTableRequests(requestsData);
 }
 
-
 function actionButtons(data, type, full) {
     return (approveButton(data, type, full) + rejectButton(data, type, full));
 }
@@ -54,9 +53,8 @@ function approveButton(data, type, full) {
 };
 
 function rejectButton(data, type, full) {
-        return "<button type=\"button\" class=\"btn btn-danger statusButton rejectButton\" data-RequestorID=\"" + full.RequestorID.Value + "\" data-FIMRequestID=\"" + full.FIMRequestID.Value + "\" data-ApprovalObjectID=\"" + full.ApprovalObjectID.Value + "\">Reject</button>";
+    return "<button type=\"button\" class=\"btn btn-danger statusButton rejectButton\" data-RequestorID=\"" + full.RequestorID.Value + "\" data-FIMRequestID=\"" + full.FIMRequestID.Value + "\" data-ApprovalObjectID=\"" + full.ApprovalObjectID.Value + "\">Reject</button>";
 };
-
 
 function onRequestsFailCallback(pamRolesResult, pamRequestsResult){
 }

@@ -4,7 +4,7 @@ $(function() {
     bindModalEvents();
     getPamRolesExtendInfo(onRolesSuccessCallback);
     
-    $("form#createRequestForm").submit(function(e){
+    $("form#createRequestForm").on('submit', function(e){
         var roleId = $("#roleIdInput").attr("value"); 
         var justification = $("#justificationInput").val();
         var reqTTL = (($("#requestedTTLInput").val() == 0) ? $("#requestedTTLInput").attr('max') : $("#requestedTTLInput").val()) * 3600; 
@@ -36,7 +36,7 @@ $(function() {
         e.preventDefault();
     });
     
-    $("form#relinquishRequestForm").submit(function(e){
+    $("form#relinquishRequestForm").on('submit', function(e){
         var roleId = $("#relinquishRoleIdInput").attr("value"); 
         var justification = $("#relinquishInputJustification").val();
         var reqTTL = 0;
