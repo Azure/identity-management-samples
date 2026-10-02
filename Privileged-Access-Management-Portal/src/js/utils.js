@@ -1,6 +1,6 @@
 
 var GlobalConfig = {
-    pamRespApiUrl : "http://pamsrv.priv.contoso.local:8086/api/pamresources/"
+    pamRespApiUrl : "https://pamsrv.priv.contoso.local:8086/api/pamresources/"
 }
 
 function GetGlobalConfig() {
